@@ -6,4 +6,6 @@
     <string name="icon_gear">&#xf085;</string>
     <string name="icon_question">&#xf128;</string>
     <string name="icon_envelope">&#xf0e0;</string>
+    <string name="icon_smile">&#xf118;</string>
+    <string name="icon_sad">&#xf119;</string>
 </resources>

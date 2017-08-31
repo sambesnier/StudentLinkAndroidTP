@@ -91,7 +91,7 @@
                     android:layout_marginLeft="32dp"
                     android:layout_marginRight="32dp"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/btn_green"
+                    android:background="@drawable/btn_ripple"
                     android:elevation="10dp"
                     android:text="Inscription"
                     android:textColor="@android:color/white" />

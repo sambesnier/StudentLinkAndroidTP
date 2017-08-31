@@ -2,5 +2,5 @@
 <ripple
     android:color="#444"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/btn_green_normal"></item>
+    <item android:drawable="@drawable/btn_icon_vote_normal"></item>
 </ripple>
