@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sambesnier.studentlink.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:titleTextColor="@android:color/white"
+        android:theme="@style/AppTheme"
+        app:popupTheme="@style/AppTheme"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/helloName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:text="Bonjour Sam"
+                android:textColor="@android:color/black"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:id="@+id/btnNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green"
+                android:orientation="horizontal"
+                android:elevation="5dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/iconNew"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/icon_list_alt"
+                    android:textColor="@android:color/white"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:paddingRight="50dp"
+                    android:textSize="16dp"
+                    android:text="Proposer un vote" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:elevation="5dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/iconList"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/icon_list"
+                    android:textColor="@android:color/white"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:paddingRight="50dp"
+                    android:textSize="16dp"
+                    android:text="Liste des votes" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:elevation="5dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/iconAccount"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/icon_user"
+                    android:textColor="@android:color/white"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:paddingRight="50dp"
+                    android:textSize="16dp"
+                    android:text="Mon compte" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnPref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="7dp"
+                android:elevation="5dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/iconPref"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/icon_gear"
+                    android:textColor="@android:color/white"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:paddingRight="50dp"
+                    android:textSize="16dp"
+                    android:text="Paramètres" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StudentLink</string>
+    <string name="icon_list">&#xf03a;</string>
+    <string name="icon_list_alt">&#xf022;</string>
+    <string name="icon_user">&#xf007;</string>
+    <string name="icon_gear">&#xf085;</string>
+    <string name="icon_question">&#xf128;</string>
+    <string name="icon_envelope">&#xf0e0;</string>
+</resources>
