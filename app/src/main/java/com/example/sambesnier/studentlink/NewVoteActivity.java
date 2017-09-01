@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,15 +22,20 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 public class NewVoteActivity extends AppCompatActivity {
 
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_vote);
+
+        username = getIntent().getStringExtra("username");
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -81,7 +87,7 @@ public class NewVoteActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Intent intent = new Intent(NewVoteActivity.this, VoteActivity.class);
-                        intent.putExtra("user", "sam");
+                        intent.putExtra("username", username);
                         startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
@@ -92,5 +98,52 @@ public class NewVoteActivity extends AppCompatActivity {
                 });
 
         queue.add(stringRequest);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        final RequestQueue queue = Volley.newRequestQueue(this);
+
+        switch (item.getItemId()) {
+            case R.id.action_account:
+                Intent intent = new Intent(NewVoteActivity.this, ParameterActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_logout:
+                String url ="http://10.0.2.2:8081/studentlink/users/logout";
+
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("username", username);
+
+                JSONObject jsonObj = new JSONObject(params);
+
+                JsonObjectRequest stringRequest = new JsonObjectRequest
+                        (Request.Method.POST, url, jsonObj, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                File file = new File("studentlink.token");
+                                file.delete();
+                                Intent intent = new Intent(NewVoteActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        });
+
+                queue.add(stringRequest);
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

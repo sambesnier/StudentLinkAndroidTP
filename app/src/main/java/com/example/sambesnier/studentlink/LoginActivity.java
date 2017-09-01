@@ -1,5 +1,6 @@
 package com.example.sambesnier.studentlink;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -61,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             @Override
                             public void onResponse(JSONObject response) {
-                                Toast.makeText(context, "Vous êtes connecté", Toast.LENGTH_LONG).show();
                                 FileOutputStream fileout= null;
                                 try {
                                     fileout = openFileOutput("studentlink.token", MODE_PRIVATE);
@@ -79,6 +79,15 @@ public class LoginActivity extends AppCompatActivity {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
+
+                                ProgressDialog nDialog;
+                                nDialog = new ProgressDialog(LoginActivity.this);
+                                nDialog.setMessage("Chargement...");
+                                nDialog.setTitle("Connexion");
+                                nDialog.setIndeterminate(false);
+                                nDialog.setCancelable(true);
+                                nDialog.show();
+
                                 startActivity(intent);
                             }
                         }, new Response.ErrorListener() {

@@ -74,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ListVoteActivity.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
@@ -83,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, AccountActivity.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
@@ -92,6 +94,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ParameterActivity.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });

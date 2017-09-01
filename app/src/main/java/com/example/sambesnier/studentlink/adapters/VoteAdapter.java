@@ -53,7 +53,7 @@ public class VoteAdapter extends ArrayAdapter<Vote> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), VoteActivity.class);
-                intent.putExtra("user", vote.getUsername());
+                intent.putExtra("username", vote.getUsername());
                 getContext().startActivity(intent);
             }
         });
