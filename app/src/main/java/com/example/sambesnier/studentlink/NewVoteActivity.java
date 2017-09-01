@@ -57,7 +57,6 @@ public class NewVoteActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 submitQuestion();
             }
         });
@@ -68,10 +67,10 @@ public class NewVoteActivity extends AppCompatActivity {
 
         EditText question = (EditText) findViewById(R.id.questionEdit);
 
-        String url ="http://10.0.2.2:8080/studentlink/votes";
+        String url ="http://10.0.2.2:8081/studentlink/votes";
 
         Map<String, String> params = new HashMap<String, String>();
-        params.put("username", "sam");
+        params.put("username", getIntent().getStringExtra("username"));
         params.put("question", question.getText().toString());
 
         JSONObject jsonObj = new JSONObject(params);

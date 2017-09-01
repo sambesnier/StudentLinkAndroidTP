@@ -63,7 +63,7 @@ public class ListVoteActivity extends AppCompatActivity {
 
         EditText question = (EditText) findViewById(R.id.questionEdit);
 
-        String url ="http://10.0.2.2:8080/studentlink/votes";
+        String url ="http://10.0.2.2:8081/studentlink/votes";
 
         JsonObjectRequest stringRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {

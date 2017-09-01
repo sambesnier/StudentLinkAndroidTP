@@ -5,7 +5,7 @@
     <item android:id="@+id/action_account"
         android:title="Mon compte"
         app:showAsAction="never" />
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/action_logout"
         android:title="Se déconnecter"
         app:showAsAction="never" />
 </menu>

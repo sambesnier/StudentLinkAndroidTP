@@ -27,7 +27,7 @@ public class VoteActivity extends AppCompatActivity {
     WebSocket ws;
     TextView question;
 
-    String user = "Superman";
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +40,25 @@ public class VoteActivity extends AppCompatActivity {
         Typeface lobster = Typeface.createFromAsset( getAssets(), "Lobster.otf" );
         Typeface font = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
 
-        TextView yes = (TextView) findViewById(R.id.iconBtnYes);
-        TextView no = (TextView) findViewById(R.id.iconBtnNo);
-        TextView blur = (TextView) findViewById(R.id.iconBtnBlur);
+        TextView yesBtn = (TextView) findViewById(R.id.iconBtnYes);
+        TextView noBtn = (TextView) findViewById(R.id.iconBtnNo);
+        TextView blurBtn = (TextView) findViewById(R.id.iconBtnBlur);
+
+        TextView votants = (TextView) findViewById(R.id.votants);
+        TextView yes = (TextView) findViewById(R.id.yesResp);
+        TextView no = (TextView) findViewById(R.id.noResp);
+        TextView blur = (TextView) findViewById(R.id.blurResp);
+
         question = (TextView) findViewById(R.id.question);
         question.setTypeface(lobster);
-        yes.setTypeface(font);
-        no.setTypeface(font);
-        blur.setTypeface(font);
+        yesBtn.setTypeface(font);
+        noBtn.setTypeface(font);
+        blurBtn.setTypeface(font);
+
+        votants.setTypeface(lobster);
+        yes.setTypeface(lobster);
+        no.setTypeface(lobster);
+        blur.setTypeface(lobster);
 
         addButtonListener();
 
@@ -57,8 +68,8 @@ public class VoteActivity extends AppCompatActivity {
     }
 
     private void start() {
-        String user = getIntent().getStringExtra("user");
-        Request request = new Request.Builder().url("ws://10.0.2.2:8080/StudentLink/vote/" + user).build();
+        user = getIntent().getStringExtra("user");
+        Request request = new Request.Builder().url("ws://10.0.2.2:8080/studentlink/vote/" + user).build();
         VoteWebSocketListener listener = new VoteWebSocketListener();
         ws = client.newWebSocket(request, listener);
         client.dispatcher().executorService().shutdown();
@@ -133,6 +144,9 @@ public class VoteActivity extends AppCompatActivity {
         }
         @Override
         public void onMessage(WebSocket webSocket, String text) {
+
+
+
             try {
                 final JSONObject json = new JSONObject(text);
                 runOnUiThread(new Runnable() {
@@ -160,6 +174,10 @@ public class VoteActivity extends AppCompatActivity {
         }
         @Override
         public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+
+        }
+
+        public void traitement(JSONObject json) {
 
         }
     }
