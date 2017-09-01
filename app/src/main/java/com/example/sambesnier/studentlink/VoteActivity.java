@@ -57,7 +57,8 @@ public class VoteActivity extends AppCompatActivity {
     }
 
     private void start() {
-        Request request = new Request.Builder().url("ws://192.168.1.97:8080/StudentLink/vote/sam").build();
+        String user = getIntent().getStringExtra("user");
+        Request request = new Request.Builder().url("ws://10.0.2.2:8080/StudentLink/vote/" + user).build();
         VoteWebSocketListener listener = new VoteWebSocketListener();
         ws = client.newWebSocket(request, listener);
         client.dispatcher().executorService().shutdown();

@@ -1,13 +1,19 @@
 package com.example.sambesnier.studentlink.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.sambesnier.studentlink.NewVoteActivity;
 import com.example.sambesnier.studentlink.R;
+import com.example.sambesnier.studentlink.VoteActivity;
 import com.example.sambesnier.studentlink.models.Vote;
 
 import java.util.List;
@@ -33,14 +39,24 @@ public class VoteAdapter extends ArrayAdapter<Vote> {
             viewHolder = new VoteViewHolder();
             viewHolder.question = (TextView) convertView.findViewById(R.id.questionRow);
             viewHolder.username = (TextView) convertView.findViewById(R.id.usernameRow);
+            viewHolder.link = (LinearLayout) convertView.findViewById(R.id.rowBtn);
             convertView.setTag(viewHolder);
         }
 
-        Vote vote = getItem(position);
+        final Vote vote = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.question.setText(vote.getQuestion());
         viewHolder.username.setText(vote.getUsername());
+
+        viewHolder.link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), VoteActivity.class);
+                intent.putExtra("user", vote.getUsername());
+                getContext().startActivity(intent);
+            }
+        });
 
         return convertView;
     }
@@ -48,6 +64,7 @@ public class VoteAdapter extends ArrayAdapter<Vote> {
     private class VoteViewHolder{
         public TextView username;
         public TextView question;
+        public LinearLayout link;
     }
 
 }
